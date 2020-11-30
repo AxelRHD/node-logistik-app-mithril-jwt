@@ -1,5 +1,5 @@
-import "./css/main.css";
-// import 'tachyons'
+// import "./css/main.css";
+import 'tachyons'
 
 import m from "mithril";
 import Layout from "./views/Layout";
