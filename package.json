@@ -1,0 +1,20 @@
+{
+  "name": "Logistik-App",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "AxelRHD <axelrhd@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mithril": "^2.0.4",
+    "tachyons": "^4.12.0",
+    "voca": "^1.4.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
