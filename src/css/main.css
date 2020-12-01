@@ -1,8 +1,40 @@
-#app {
-  padding: 30px 1em 0px;
-  height: 100vh;
+body {
+	font-family: helvetica,sans-serif;
 }
 
-nav {
-  background-color: antiquewhite;
+main {
+	height: 100vh;
+	background-color: floralwhite;
+}
+
+.gr-header {
+	grid-area: header;
+	background-color: lightgreen;
+	/* align-self: center; */
+}
+
+.gr-sidebar {
+	grid-area: sidebar;
+	background-color: plum;
+}
+
+.gr-main {
+	grid-area: main;
+	background-color: aliceblue;
+}
+
+.gr-footer {
+	grid-area: footer;
+	background-color: lightyellow;
+}
+
+.grid-container {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 30% auto;
+	grid-template-rows: 60px auto 30px;
+	grid-template-areas:
+		"header header"
+		"sidebar main"
+		"sidebar footer";
 }

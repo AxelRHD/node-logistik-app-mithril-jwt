@@ -5,7 +5,7 @@ import Store from "../models/Store";
 const Navbar = () => {
   return {
     view: (vnode) => {
-      return m("nav", [
+      return m("nav.gr-header", [
         m(
           m.route.Link,
           {
