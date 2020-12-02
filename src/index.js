@@ -1,4 +1,4 @@
-import "normalize.css"
+// import "normalize.css"
 import "./css/main.css"
 import 'tachyons'
 
@@ -8,6 +8,7 @@ import Layout from "./views/Layout"
 import Main from "./views/Main"
 import Login from "./views/Login"
 import About from "./views/About"
+import Platzinventur from "./views/Platzinventur"
 import Gridtest from "./views/Gridtest"
 import GridPartial from "./views/Gridpartial"
 
@@ -16,10 +17,15 @@ import GridPartial from "./views/Gridpartial"
 m.route(document.body, "/login", {
   "/login": {
     render: (vnode) => {
-      console.log(vnode.attrs)
+      // console.log(vnode.attrs)
       return m(Layout, m(Login, { title: 'Login' }))
     }
   },
+	"/platzinventur": {
+		render: (vnode) => {
+			return m(Layout, m(Platzinventur, { title: 'Platzinventur' }))
+		}
+	},
   "/gt": {
     render: () => {
       return m(Layout, m(Gridtest))

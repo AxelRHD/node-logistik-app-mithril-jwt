@@ -10,7 +10,10 @@
     },
     {
       "username": "user",
-      "password": "$2b$10$PEgAyzBu3REPD1UZFEi3o.4bSWlNqcpCK77uwgINC3sdKuh4nheDe"
+      "password": "$2b$10$PEgAyzBu3REPD1UZFEi3o.4bSWlNqcpCK77uwgINC3sdKuh4nheDe",
+      "roles": [
+        "platzinventur"
+      ]
     }
   ]
 }

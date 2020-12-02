@@ -15,29 +15,25 @@ const Main = () => {
           },
           hidden: Store.activeUser
         }),
-        !Store.activeUser
-          ? m(
-              "button",
-              {
-                onclick: () => {
-                  Store.login(userInput);
-                  userInput = "";
-                }
-              },
-              "Login"
-            )
-          : null,
-        Store.activeUser
-          ? m(
-              "button.error",
-              {
-                onclick: () => {
-                  Store.logout();
-                }
-              },
-              "Logout"
-            )
-          : null
+				m("button",
+					{
+						onclick: () => {
+							Store.login(userInput);
+							userInput = "";
+						},
+						hidden: !Store.activeUser
+					},
+					"Login"
+				),
+				m(
+					"button.error",
+					{
+						onclick: () => {
+							Store.logout();
+						}
+					},
+					"Logout"
+				)
       ]);
     }
   };

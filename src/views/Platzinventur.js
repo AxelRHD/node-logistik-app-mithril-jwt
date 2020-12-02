@@ -2,7 +2,7 @@ import m from "mithril"
 
 import Navbar from './Navbar'
 
-const Gridtest = () => {
+const Platzinventur = () => {
   return {
     view: (vnode) => {
       return m('div[class=grid-container grid-template-sidebar]',
@@ -10,13 +10,13 @@ const Gridtest = () => {
         //   class: "grid-container grid-template-sidebar"
         // },
         [
-				m(Navbar),
+				m(Navbar, { title: vnode.attrs.title }),
 				m('.gr-sidebar', "Menu"),
-				m('.gr-main', "Main"),
+				m('.gr-main', "Platzinventur"),
 				m('.gr-footer', "Footer"),
 			])
     }
   }
 }
 
-export default Gridtest
+export default Platzinventur

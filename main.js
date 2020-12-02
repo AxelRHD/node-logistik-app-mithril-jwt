@@ -2,17 +2,18 @@
 
 const express = require('express'),
       app = express(),
-      handlebars = require('express-handlebars'),
+      // handlebars = require('express-handlebars'),
       // session = require('express-session'),
       bodyParser = require('body-parser'),
       cookieParser = require('cookie-parser'),
       httpStatus = require('http-status-codes'),
+			// path = require('path'),
       jwt = require('jsonwebtoken'),
       moment = require('moment');
 
-const platzinventur = require('./router/platzinventur'),
-      nodeImports = require('./router/node-imports'),
-      { db, checkPassword } = require('./utils');
+const { db, checkPassword } = require('./utils'),
+			platzinventur = require('./router/platzinventur');
+			// nodeImports = require('./router/node-imports');
 
 const jwt_secret = process.env.JWT_SECRET || 'A Super Secret!',
       jwt_cookie = 'token';
@@ -29,8 +30,8 @@ const jwt_secret = process.env.JWT_SECRET || 'A Super Secret!',
 
 // HANDLEBARS
 app.set('port', process.env.PORT || 3000);
-app.engine('handlebars', handlebars());
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', handlebars());
+// app.set('view engine', 'handlebars');
 
 
 
@@ -73,7 +74,8 @@ const getUserFromToken = (req,res,next) => {
 
 
 // MIDDLEWARE
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -87,7 +89,7 @@ app.use((req,res,next) => {
 
 
 // NODE_MODULES STATICS (e. g. alpine.js)
-app.use('/nm', nodeImports.router);
+// app.use('/nm', nodeImports.router);
 
 
 
@@ -128,68 +130,18 @@ app.get('/login', (req,res) => {
 });
 
 
-app.get('/bundle', (req,res) => {
-  res.render('alpine01');
-});
+// app.get('/bundle', (req,res) => {
+//   res.render('alpine01');
+// });
  
 
 
 // ROUTER
-app.use('/platzinventur/secret', verifyToken);
+// app.use('/platzinventur/secret', verifyToken);
 app.use('/platzinventur', platzinventur.router);
-
 
 
 // START ROUTER
 app.listen(app.get("port"), () => {
   console.log(`App listening on http://localhost:${app.get("port")}`);
 });
-
-
-
-
-
-
-
-// app.use(session({
-//     secret: '2C44-4D44-WppQ38S',
-//     resave: true,
-//     saveUninitialized: true,
-//     maxAge: 1000 * 60 * 60 * 24
-// }));
-
-
-// bcrypt.hash("dummy", 10, (err,hash) => {
-//   db.get('users')
-//     .push({ username: "dummy", password: hash})
-//     .write();
-// });
-
-// let usr = db.get('users')
-//             .find({username: "dummy"})
-//             .value();
-// console.log(usr === undefined ? "User unknown" : usr.password);
- 
-// Authentication and Authorization Middleware
-// var auth = function(req, res, next) {
-//   // if (req.session && req.session.user === "amy" && req.session.admin)
-//   if (req.session && req.session.user)
-//     return next();
-//   else
-//     return res.sendStatus(401);
-// };
- 
-// Login endpoint
-// app.get('/login', function (req, res) {
-//   let usr = req.query.username;
-//   let pwd = req.query.password;
-//   console.log(`User: ${usr}\nPassword: ${pwd}`);
-
-//   if (!checkPassword(usr,pwd)) {
-//     res.send('login failed');    
-//   } else {
-//     req.session.user = usr;
-//     req.session.admin = true;
-//     res.send("login success!");
-//   }
-// });
