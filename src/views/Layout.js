@@ -1,20 +1,11 @@
-import m from "mithril";
-import Navbar from "./Navbar";
+import m from "mithril"
 
-const Layout = () => {
+const Layout = (vnode) => {
   return {
     view: (vnode) => {
-      return m("main",
-				m('.grid-container', [
-					m(Navbar),
-					m("#app", [
-						m("h1", "Mithril Primer"),
-						m(".gr-main", vnode.children)
-					])
-      	])
-			);
+      return m("main", vnode.children)
     }
   };
 };
 
-export default Layout;
+export default Layout

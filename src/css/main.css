@@ -9,7 +9,7 @@ main {
 
 .gr-header {
 	grid-area: header;
-	background-color: lightgreen;
+	background-color: floralwhite;
 	/* align-self: center; */
 }
 
@@ -20,7 +20,7 @@ main {
 
 .gr-main {
 	grid-area: main;
-	background-color: aliceblue;
+	background-color: lavender;
 }
 
 .gr-footer {
@@ -32,9 +32,19 @@ main {
 	height: 100vh;
 	display: grid;
 	grid-template-columns: 30% auto;
-	grid-template-rows: 60px auto 30px;
+	grid-template-rows: 50px auto 27px;
+}
+
+.grid-template-main {
+	grid-template-areas:
+		"header header"
+		"main main"
+		"footer footer";
+}
+
+.grid-template-sidebar {
 	grid-template-areas:
 		"header header"
 		"sidebar main"
-		"sidebar footer";
+		"footer footer";
 }
